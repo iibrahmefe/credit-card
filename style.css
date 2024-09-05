@@ -20,16 +20,46 @@ body {
   display: none !important;
 }
 
+#card_type{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: var(--white);
+  font-size: 24px;
+}
+
 .error {
   border: 3px solid var(--red);
 }
 
-.error_message {
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-size: 12px;
+  position: absolute;
+top: 0px;
+  right: 0;
   gap: 0;
 }
 
+.error-message-month,
+.error-message-year,
+.error-message-cvc{
+  position: absolute;
+  display: none;
+  color: red;
+  font-size: 10px;
+  position: absolute;
+  bottom: -20px;
+  text-wrap: nowrap;
+}
+
 .error_message::after {
-  content: "Burası Boş Olamaz !!!";
   color: var(--red);
   margin-top: 4px;
 }
@@ -37,6 +67,7 @@ body {
 .container {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .left_section {

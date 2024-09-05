@@ -18,6 +18,7 @@
         <div class="left_section">
           <div class="cards">
             <div class="front_card">
+              <p id="card_type">Kart Markasi</p>
               <img
                 src="./images/card-logo.svg"
                 alt="card-logo"
@@ -45,82 +46,88 @@
 
         <div class="right_section">
           <form>
-            <div class="grid_1">
+            <div class="grid_1 input-group">
               <label for="card_name">Kart sahibinin ismi</label>
+              <span class="error-message" id="name-error">Değerli isminizi bahşeder misiniz?</span>
+
               <input
                 type="text"
-                placeholder="Kart isminiz"
+                placeholder="İsminiz"
                 id="card_name"
                 required
               />
             </div>
-            <div class="grid_2">
+            <div class="grid_2 input-group">
               <label for="card_number">Kart Numarası</label>
               <input
                 type="number"
-                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                minlength="16"
                 maxlength="16"
+                max="16"
                 placeholder="Kart Numarası"
+                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                 id="card_number"
                 required
               />
+              <span class="error-message" id="number-error">Geçerli bir kart numarası girin</span>
             </div>
             <div class="card_information">
               <div id="card_date">
                 <label for="card_date">Ay ve Yıl</label>
                 <div class="two_inp">
-                  <div>
+                  <div class="input-group">
                     <input
                       type="number"
                       placeholder="MM"
                       oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                       minlength="2"
                       maxlength="2"
+                      min="1"
+                      max="12"
                       id="card_month"
                       required
                     />
+                    <span class="error-message-month" id="month-error">Geçerli bir ay girin</span>
                   </div>
-                  <div>
+                  <div class="input-group">
                     <input
-                      oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                      type="number"
-                      minlength="2"
-                      maxlength="2"
-                      placeholder="YY"
-                      id="card_year"
-                      required
+                    oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    type="number"
+                    minlength="2"
+                    maxlength="2"
+                    placeholder="YY"
+                    max="99"
+                    min="24"
+                    id="card_year"
+                    required
                     />
+                    <span class="error-message-year" id="year-error">Geçerli bir yıl girin</span>
                   </div>
                 </div>
               </div>
-              <div class="grid_4">
+              <div class="grid_4 input-group">
                 <label for="card_cvc">Güvenlik Kodu</label>
                 <input
                   type="number"
-                  oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                   maxlength="3"
                   placeholder="Güvenlik Kodu"
                   id="card_cvc"
                   required
                 />
+                <span class="error-message-cvc" id="cvc-error">CVC 3 haneli olmalıdır</span>
               </div>
             </div>
             <button id="submit_btn" type="submit">Gönder</button>
           </form>
           <div class="thank hidden">
-            <img src="./images/icon-complete.svg" alt="Completed" />
+            <img src="./images/icon-complete.svg" alt="Completed"/>
             <h1>Teşekkürler</h1>
-            <p>We've added your card details</p>
-            <button>Devam</button>
+            <p>Kart bilgileriniz eklendi</p>
+            <button id="refresh_btn" type="submit">Devam</button>
           </div>
         </div>
       </div>
     </main>
-
-    <!-- Completed state start -->
     <script src="https://unpkg.com/imask"></script>
     <script src="main.js"></script>
-  
   </body>
 </html>
